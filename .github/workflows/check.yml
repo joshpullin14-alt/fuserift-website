@@ -15,3 +15,4 @@ jobs:
           node-version: '22'
       - run: node tools/build-check.mjs
       - run: node tools/test-data.mjs
+      - run: node tools/test-update-feed.mjs

@@ -1,6 +1,6 @@
-# FuseRift website — review copy
+# FuseRift website
 
-This is the existing FuseRift website, refactored without a visual redesign. **These changes have not been published.** The live website and installer remain unchanged. Do not connect a deployment or push this revision to a connected production branch until Josh has reviewed it.
+This is the existing FuseRift website, refactored without a visual redesign. The automatic version is connected at https://fuserift-website.pages.dev/ using https://github.com/joshpullin14-alt/fuserift-website. Josh authorized setup and testing on this separate address. The original website and custom domains remain unchanged; domain switching requires separate approval.
 
 The website is plain HTML, CSS and browser JavaScript. Node.js is used only to generate the files before hosting. There is no database, server, paid CMS or runtime service. All 14 existing page URLs, artwork, mobile styles and working installer links are preserved.
 
@@ -97,47 +97,52 @@ The second command is the regression suite. It uses a temporary copy to test add
 
 `npm run build` and `npm test` are equivalent convenience commands; no dependencies are required. CSS and artwork are unchanged. Build-derived cache versions prevent stale browser config after future releases.
 
-## GitHub and Cloudflare Pages — prepare now, enable only after review
+## Automatic publishing and approval
 
-**Current state:** the live `fuserift` Cloudflare project uses Direct Upload. No GitHub connection, repository push, custom-domain change or deployment was made for this refactor.
+Josh can simply ask the assistant to add or change a Fusion. The assistant prepares and tests the change, shows Josh what changed, and waits for approval. After approval, the assistant merges it; Cloudflare automatically rebuilds and publishes. Josh does not need to operate GitHub or Cloudflare for normal updates.
 
-Cloudflare does not allow converting an existing Direct Upload project to native Git integration. The native Git-connected route therefore needs a new Pages project. Keep the current project available for rollback. Do not delete it or buy another domain. Official instructions:
+Current setup:
 
-- https://developers.cloudflare.com/pages/get-started/direct-upload/
-- https://developers.cloudflare.com/pages/get-started/git-integration/
-- https://developers.cloudflare.com/pages/platform/limits/
+- Repository: https://github.com/joshpullin14-alt/fuserift-website
+- Git-connected Cloudflare project: `fuserift-website`
+- Test site: https://fuserift-website.pages.dev/
+- Production branch: `main`; automatic production builds enabled.
+- Framework: None; repository root; build command `node tools/build-check.mjs`; output `dist`; Node 22.
+- Automatic preview branch deployments disabled. Draft changes are reviewed locally.
+- GitHub requires a pull request, a passing `check`, and an up-to-date branch. Admin bypass, force pushes and branch deletion are disabled.
+- Josh is the sole repository owner, so GitHub reviewer approval is not required (an author cannot approve their own request). His approval must instead be obtained in chat and recorded briefly in the pull request, as required by AGENTS.md. Do not merge future content changes without it.
+- The Actions workflow checks changes only. Native Cloudflare Git integration handles deployment; no deployment tokens or second publishing workflow are needed.
 
-### One-time setup AFTER Josh approves this revision
+### Domain switch still awaiting approval
 
-1. Create a separate GitHub repository for this website (suggested name `fuserift-website`). Put this project folder's contents at its root. Do not use the launcher source repository or put installer binaries in it. `dist/` is generated and ignored by Git.
-2. Review the initial revision locally before pushing it. Do not connect Cloudflare while this revision is awaiting review: connecting and selecting Save and Deploy publishes a site.
-3. In Cloudflare go to Workers & Pages → Create application → Pages → Connect to Git. Select only the website repository. Choose an available new project name, e.g. `fuserift-site` if available. The existing `fuserift` project remains untouched during setup.
-4. Use these build settings:
+`fuserift.co.uk` and `www.fuserift.co.uk` remain on the original Direct Upload project `fuserift`. Do not switch either domain until Josh approves the tested automatic version. Keep the original project and deployment for rollback; never delete them as part of this migration.
 
-   | Setting | Value |
-   | --- | --- |
-   | Framework | None |
-   | Production branch | `main` |
-   | Root directory | Repository root (leave blank) |
-   | Build command | `node tools/build-check.mjs` |
-   | Build output directory | `dist` |
-   | Node version | `22` (`.nvmrc` is supplied) |
+After approval, save current domain/DNS settings, move both custom domains through Cloudflare's supported flow, and verify HTTPS and all pages. If cutover fails, reconnect the original project. For later content mistakes, roll back to a known-good deployment and revert the bad Git commit.
 
-5. Disable automatic preview-branch deployments if unreviewed changes must never be published at any public preview URL. Keep production builds enabled for `main`.
-6. On GitHub require pull requests and passing `Website checks / check` before merging to `main`, and require review where your repository plan supports it. Do not allow ordinary direct pushes to `main`. If review enforcement is unavailable for your repository/plan, Josh must explicitly approve before merging; Cloudflare does not decide whether a change is approved.
-7. After the approved initial build succeeds, check every existing page and the installer link at the new Pages URL. Only then move `fuserift.co.uk` and `www.fuserift.co.uk` from the old project's Custom domains to the new project's Custom domains using Cloudflare's flow. Save the old project/domain/DNS settings first and verify both names and HTTPS afterward. This domain cutover is a separate reviewed action, not part of this refactor.
-8. Keep the original project and deployment for rollback. If cutover fails, reattach the domains to the original project; for later content mistakes, roll back to a known-good deployment and revert the bad Git commit so a future build does not reintroduce it.
+### Assistant's update procedure
 
-Once connected, merging an approved change to `main` automatically runs the build/check command and republishes the static website. Do not add a second deployment workflow. The included GitHub Actions workflow only checks pull requests and pushes; it has no deployment credentials or publishing step.
+1. Create an update branch, edit artwork/JSON, and run both checks shown above.
+2. Preview locally and open a pull request with a clear summary and validation.
+3. Obtain Josh's approval of that concrete update and record it briefly in the request.
+4. Merge only when required checks pass. Confirm Cloudflare automatically builds the merged commit and verify the affected public pages/download.
 
-### Josh's normal update after that setup
+Hosting remains static on Cloudflare Pages Free, with no paid runtime service. Hosting is £0/month within free limits; the existing domain has its separate annual renewal cost. Installer binaries stay on the existing GitHub Releases host. Do not enable paid add-ons.
 
-1. Create an update branch, edit the artwork/JSON and run `node tools/build-check.mjs`.
-2. Preview locally; push the update branch and open a pull request.
-3. Review the pages and passing checks. Merge to `main` only when approved.
-4. Cloudflare builds and publishes automatically. Confirm its build succeeded, then open the changed page on your phone and check any changed download link.
+## Import a future approved launcher release
 
-This uses Cloudflare Pages Free with no paid runtime services: £0/month hosting within its free limits (currently 500 builds/month, 20,000 files, 25 MiB maximum per asset). The existing domain still has its separate annual renewal cost. Do not enable paid add-ons. GitHub usage is subject to its free allowance, particularly for private repositories. The installer stays on the existing GitHub release hosting.
+The launcher repository's `release/application.json` is the source for future release metadata. Its local exporter produces `website-release-fields.json` and a signed `update/` folder. Do not retype versions or hashes into HTML.
+
+After reviewing the release and copying its matching audit into `download/`, run:
+
+```text
+node tools/import-release.mjs <export/website-release-fields.json> download/<matching-audit>.json <export/update>
+node tools/build-check.mjs
+node tools/test-update-feed.mjs
+```
+
+The import checks the manifest signature and matching installer metadata. A configured `release-feed/` is verified again during the build and emitted as `/update/latest.json` and `/update/latest.json.sig`. No feed exists in this revision: the production key and endpoint remain unconfigured. No updater release has been imported or published. Keep the current 0.1.8.9 download unchanged until a new installer is approved and verified.
+
+The updater milestone is on a publication hold. The setup pull request remains open; do not merge or switch custom domains until Josh approves.
 
 ## Source map
 

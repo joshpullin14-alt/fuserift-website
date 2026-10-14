@@ -8,5 +8,8 @@
 /js/config.js
   Cache-Control: no-cache
 
+/update/*
+  Cache-Control: no-cache, no-store, must-revalidate
+
 /assets/*
   Cache-Control: public, max-age=86400

@@ -1,0 +1,18 @@
+{
+  "release": {
+    "version": "0.1.9.0",
+    "filename": "FuseRiftSetup-0.1.9.0-alpha.exe",
+    "bytes": 105077846,
+    "sha256": "dcdd2b04831226661a8c9ff616d6d5a1386d8a890e0445fff1425c0f0caa23a7"
+  },
+  "experimental": true,
+  "authenticode": "unsigned",
+  "fiveBundledRecipesUnchanged": true,
+  "packageScanPassed": true,
+  "isolatedInstallationChecksPassed": true,
+  "updaterTestsPassed": 58,
+  "realIsolatedUpdateRollbackRecoveryPassed": true,
+  "customerDataPreserved": true,
+  "manifestSignature": "ECDSA P-256/SHA-256",
+  "publicationApproved": true
+}
