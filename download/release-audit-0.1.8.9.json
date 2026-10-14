@@ -1,0 +1,224 @@
+{
+  "release": {
+    "product": "Fusion Engine Pro — Experimental Customer Alpha",
+    "version": "0.1.8.9",
+    "filename": "FusionSetup-0.1.8.9-alpha.exe",
+    "bytes": 82834280,
+    "sha256": "1a1342fa742f74798d8566ced2d65eaf1d805ec7db5359324f9d8f309b9f072d",
+    "sourceCommit": "2222e3c92c827a7f892321f52f83ad3925ad7e61",
+    "signed": false
+  },
+  "auditDate": "2026-10-14",
+  "status": "PACKAGE_INSTALLATION_AND_PUBLIC_DOWNLOAD_VERIFIED",
+  "publicDownloadVerified": true,
+  "originalPayloadPreserved": true,
+  "recipes": [
+    {
+      "file": "fnaf-balatro-0.1.0-alpha.2.fzp",
+      "sha256": "15b03591e8d7b3cf5563a8abdcee4bb49aec23482c30eec391e96a92e2e9a3e6",
+      "managedFiles": 362
+    },
+    {
+      "file": "halo3-minecraft-0.1.0-alpha.4.fzp",
+      "sha256": "9c6c9f58b14da8c2b84a223fea1036aae50c24781475dbba695a94650622b02e",
+      "managedFiles": 7
+    },
+    {
+      "file": "left4dead-minecraft-0.1.0-alpha.6.fzp",
+      "sha256": "42f4b6879ed0d88685e334c2cfd0c9aa0342fba92d1006783ba3e4acee82a7c9",
+      "managedFiles": 7
+    },
+    {
+      "file": "portalcraft-0.1.0-alpha.4.fzp",
+      "sha256": "8050d133334bbade3384b94d349a88667614a73b1e498eb0a460fd4b80925d06",
+      "managedFiles": 13
+    },
+    {
+      "file": "killcraft-0.1.0-alpha.8.fzp",
+      "sha256": "d7e4a28e594f58bd243513016da85f6f50648e5465a7faa2147d83ff14e0e45a",
+      "managedFiles": 30
+    }
+  ],
+  "approvedException": {
+    "authorization": "User explicitly approved narrowly scoped exact-hash exceptions on 2026-10-14",
+    "policySha256": "83fe6a8905a79443bb11e90d120a2b93eb5bc210663990d6469c86c73279e7dc",
+    "scope": "Only reviewed build-path strings in the unchanged FNaF/Balatro Alpha 2 recipe. Four CodeView paths and 371 upstream Rust source-location strings under the generic CI account runneradmin. No secrets or personal identifiers are excepted.",
+    "guards": [
+      "Exact recipe name and SHA-256",
+      "Exact containing archive names and SHA-256",
+      "Exact dependency entry name and SHA-256",
+      "Exact forbidden term, byte offsets and reviewed path strings",
+      "Exact policy SHA-256",
+      "Every other original scan rule active; changed recipes, binaries or policy fail closed"
+    ],
+    "dependencies": [
+      {
+        "entry": "BundledRecipes/fnaf-balatro-0.1.0-alpha.2.fzp!inputs/ctfak-runtime.zip!CTFAK.Cli.dll",
+        "sha256": "4743e5cffb337c4aac1b7790054ba5a4b102201b2cdad36be147830a75e258ee",
+        "recipeSha256": "15b03591e8d7b3cf5563a8abdcee4bb49aec23482c30eec391e96a92e2e9a3e6",
+        "policySha256": "83fe6a8905a79443bb11e90d120a2b93eb5bc210663990d6469c86c73279e7dc",
+        "reason": "CodeView PDB build pathname only",
+        "approvedOccurrences": 1,
+        "scope": "Exact reviewed build-path strings only; no secrets or personal identifiers"
+      },
+      {
+        "entry": "BundledRecipes/fnaf-balatro-0.1.0-alpha.2.fzp!inputs/ctfak-runtime.zip!CTFAK.Core.dll",
+        "sha256": "04d5076d3425bbe83f12f0f665e396a41182cb12887ea1b6281b44680d0b704e",
+        "recipeSha256": "15b03591e8d7b3cf5563a8abdcee4bb49aec23482c30eec391e96a92e2e9a3e6",
+        "policySha256": "83fe6a8905a79443bb11e90d120a2b93eb5bc210663990d6469c86c73279e7dc",
+        "reason": "CodeView PDB build pathname only",
+        "approvedOccurrences": 1,
+        "scope": "Exact reviewed build-path strings only; no secrets or personal identifiers"
+      },
+      {
+        "entry": "BundledRecipes/fnaf-balatro-0.1.0-alpha.2.fzp!inputs/ctfak-runtime.zip!Plugins/Dumper.dll",
+        "sha256": "57d61a0bc8a01694041d5973627c969414fc58a207c5729e389b8d05ced605a1",
+        "recipeSha256": "15b03591e8d7b3cf5563a8abdcee4bb49aec23482c30eec391e96a92e2e9a3e6",
+        "policySha256": "83fe6a8905a79443bb11e90d120a2b93eb5bc210663990d6469c86c73279e7dc",
+        "reason": "CodeView PDB build pathname only",
+        "approvedOccurrences": 1,
+        "scope": "Exact reviewed build-path strings only; no secrets or personal identifiers"
+      },
+      {
+        "entry": "BundledRecipes/fnaf-balatro-0.1.0-alpha.2.fzp!inputs/ctfak-runtime.zip!x64/zlibwapi.dll",
+        "sha256": "7432980f44ee7588acc2d7913d726e5483aef75e62d5615557d32c4ab6170132",
+        "recipeSha256": "15b03591e8d7b3cf5563a8abdcee4bb49aec23482c30eec391e96a92e2e9a3e6",
+        "policySha256": "83fe6a8905a79443bb11e90d120a2b93eb5bc210663990d6469c86c73279e7dc",
+        "reason": "CodeView PDB build pathname only",
+        "approvedOccurrences": 1,
+        "scope": "Exact reviewed build-path strings only; no secrets or personal identifiers"
+      },
+      {
+        "entry": "BundledRecipes/fnaf-balatro-0.1.0-alpha.2.fzp!inputs/payload/balatro/winmm.dll",
+        "sha256": "6f707d32ff022f155584340bfb19cd93205cb47234e8bec80ccfc747222dfea2",
+        "recipeSha256": "15b03591e8d7b3cf5563a8abdcee4bb49aec23482c30eec391e96a92e2e9a3e6",
+        "policySha256": "83fe6a8905a79443bb11e90d120a2b93eb5bc210663990d6469c86c73279e7dc",
+        "reason": "Upstream CI runneradmin Rust source-location strings; generic build account, not a personal identifier",
+        "approvedOccurrences": 371,
+        "scope": "Exact reviewed build-path strings only; no secrets or personal identifiers"
+      }
+    ]
+  },
+  "packagingRegressionTests": {
+    "status": "PASS",
+    "tests": 10,
+    "failures": 0,
+    "errors": 0,
+    "policySha256": "83fe6a8905a79443bb11e90d120a2b93eb5bc210663990d6469c86c73279e7dc",
+    "recipeSha256": "15b03591e8d7b3cf5563a8abdcee4bb49aec23482c30eec391e96a92e2e9a3e6",
+    "scope": "Packaging policy only; no game execution or integration tests"
+  },
+  "installationChecks": {
+    "status": "PASS",
+    "version": "0.1.8.9",
+    "installerSha256": "1a1342fa742f74798d8566ced2d65eaf1d805ec7db5359324f9d8f309b9f072d",
+    "actualSilentInstall": true,
+    "installedInventoryAndRecursiveAudit": true,
+    "nonEmptyDestinationRejected": true,
+    "registeredInstallOverwriteRejected": true,
+    "shortcutVerified": true,
+    "uninstallExactOwnership": true,
+    "unknownFileRetained": true,
+    "customerFileMetadataUnchanged": true,
+    "publishedPayloadHashesUnchanged": true,
+    "gamesLaunched": false,
+    "gameplayOrFullRegressionTestsRun": false
+  },
+  "packagingAdjustments": [
+    {
+      "path": "BuildWorker/Fusion.BuildWorker.dll",
+      "action": "Portable CodeView filename only",
+      "originalSha256": "59e6fa39eb09793386e87e8350dd9f385cc069bc5023e3af16b8b66fae425df9",
+      "portableSha256": "cf82089eb127c85800f6cc4141dad0d46b1d24282fde853ef3685704802856de",
+      "changes": [
+        {
+          "kind": "CodeView PDB pathname only",
+          "offset": 9316,
+          "length": 117,
+          "replacement": "Fusion.BuildWorker.pdb"
+        }
+      ],
+      "codeAndMetadataUnchanged": true
+    },
+    {
+      "path": "BuildWorker/Fusion.BuildWorker.pdb",
+      "action": "Omitted non-runtime debug symbols",
+      "originalSha256": "f91d5f1a5364d78f472e5244a6390b81ed63946311fe4d2f95e9e66d84d70802"
+    },
+    {
+      "path": "BuildWorker/Fusion.Engine.dll",
+      "action": "Portable CodeView filename only",
+      "originalSha256": "af5c9fea4665831f6c5d4aa904a4e4512451a49067638bf0f0e9c96d29f82c90",
+      "portableSha256": "204ca26f8dcfda5b820b1c078a86f5d784d1af8ea4d879f91fa13651ea028930",
+      "changes": [
+        {
+          "kind": "CodeView PDB pathname only",
+          "offset": 91376,
+          "length": 85,
+          "replacement": "Fusion.Engine.pdb"
+        }
+      ],
+      "codeAndMetadataUnchanged": true
+    },
+    {
+      "path": "BuildWorker/Fusion.Engine.pdb",
+      "action": "Omitted non-runtime debug symbols",
+      "originalSha256": "12fbf0e792080ee571fa6b14d99accb83a75999e2932da892ba762ebf853e75b"
+    },
+    {
+      "path": "BuildWorker/Fusion.Engine.Pro.dll",
+      "action": "Portable CodeView filename only",
+      "originalSha256": "faf0373070c23fcfb0c7891885612fa9d1ffe6450d5f7f2a6ffb4b0a14746785",
+      "portableSha256": "1b88dfec443e086d963a9368a6b833c5d0da81d4f929fb0f1343668dda310c1e",
+      "changes": [
+        {
+          "kind": "CodeView PDB pathname only",
+          "offset": 187336,
+          "length": 96,
+          "replacement": "Fusion.Engine.Pro.pdb"
+        }
+      ],
+      "codeAndMetadataUnchanged": true
+    },
+    {
+      "path": "BuildWorker/Fusion.Engine.Pro.pdb",
+      "action": "Omitted non-runtime debug symbols",
+      "originalSha256": "f046610b8483f5e93186069f017a2663effb7aa861dd9e49fc204ed59e2c4ae3"
+    },
+    {
+      "path": "BuildWorker/FusionLauncher.Core.dll",
+      "action": "Portable CodeView filename only",
+      "originalSha256": "5c461d1d71f18a2aa3912072bb5fe2c97bf4d6532bcf6a557fc4f2398a11cd1c",
+      "portableSha256": "4e216e46abedc960cbf48e9b59e81e40af549323a249c3f4ecfb06b22107cb54",
+      "changes": [
+        {
+          "kind": "CodeView PDB pathname only",
+          "offset": 172260,
+          "length": 103,
+          "replacement": "FusionLauncher.Core.pdb"
+        }
+      ],
+      "codeAndMetadataUnchanged": true
+    },
+    {
+      "path": "BuildWorker/FusionLauncher.Core.pdb",
+      "action": "Omitted non-runtime debug symbols",
+      "originalSha256": "3822a2c5ee4d5414fc72da3ae011efca32096d14adddb30b4a74ab7d1f4227a2"
+    }
+  ],
+  "limitations": [
+    "Unsigned Windows installer",
+    "Experimental compatibility; users must own compatible required games",
+    "No gameplay or full-regression tests run",
+    "External game/runtime prerequisites and official account sign-in remain separate setup steps"
+  ],
+  "publicDownload": {
+    "url": "https://github.com/joshpullin14-alt/fuserift-downloads/releases/download/v0.1.8.9-alpha/FusionSetup-0.1.8.9-alpha.exe",
+    "authenticated": false,
+    "httpStatus": 200,
+    "bytes": 82834280,
+    "sha256": "1a1342fa742f74798d8566ced2d65eaf1d805ec7db5359324f9d8f309b9f072d",
+    "windowsPE": true,
+    "verifiedAt": "2026-10-14T09:29:50.3711713Z"
+  }
+}

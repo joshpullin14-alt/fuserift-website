@@ -1,0 +1,38 @@
+import fs from 'node:fs/promises';
+import os from 'node:os';
+import path from 'node:path';
+import assert from 'node:assert/strict';
+import {fileURLToPath} from 'node:url';
+import {spawnSync} from 'node:child_process';
+import {loadData} from './data.mjs';
+const source=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
+const temp=await fs.mkdtemp(path.join(os.tmpdir(),'fuserift-test-'));
+let passed=0;
+try {
+ for(const name of ['tools','data','assets','css','js','download','_headers','_redirects','.nojekyll'])await fs.cp(path.join(source,name),path.join(temp,name),{recursive:true});
+ const original=JSON.parse(await fs.readFile(path.join(temp,'data/fusions.json'),'utf8'));
+ const originalConfig=JSON.parse(await fs.readFile(path.join(temp,'data/site-config.json'),'utf8'));
+ const save=async data=>fs.writeFile(path.join(temp,'data/fusions.json'),JSON.stringify(data));
+ const saveConfig=async data=>fs.writeFile(path.join(temp,'data/site-config.json'),JSON.stringify(data));
+ const bad=async (mutate,pattern)=>{const data=structuredClone(original);mutate(data);await save(data);await assert.rejects(loadData(temp),pattern);passed++;await save(original);};
+ await bad(d=>d.push(structuredClone(d[0])),/Duplicate/);
+ await bad(d=>d[0].artwork.src='../outside.png',/Unsafe/);
+ await bad(d=>d[0].artwork.src='assets/images/missing.png',/ENOENT/);
+ await bad(d=>d[0].order=d[1].order,/unique integer/);
+ await bad(d=>d[0].compatibility=null,/compatibility/);
+ await saveConfig({...originalConfig,DOWNLOAD_URL:'javascript:alert(1)'});await assert.rejects(loadData(temp),/HTTPS/);passed++;
+ await saveConfig({...originalConfig,LATEST_VERSION:'9.9.9'});await assert.rejects(loadData(temp),/audit does not match/);passed++;
+ await saveConfig({...originalConfig,BUNDLED_FUSION_IDS:['not-a-fusion']});await assert.rejects(loadData(temp),/BUNDLED_FUSION_IDS/);passed++;await saveConfig(originalConfig);
+ const extra={...structuredClone(original[0]),id:'test-fusion',slug:'test-fusion',title:'Test & New Fusion',nickname:'Test Nickname',featuredTitle:'',order:60,featured:false,status:'Coming soon',shortDescription:'New short description',fullDescription:'New full description',type:'Puzzle',artwork:{src:original[0].artwork.src,alt:'Test image',width:1672,height:941,theme:'halo'}};
+ await save([...original,extra]);
+ const build=()=>{const r=spawnSync(process.execPath,[path.join(temp,'tools/build-check.mjs')],{encoding:'utf8'});assert.equal(r.status,0,r.stdout+r.stderr);};
+ build();const detail=await fs.readFile(path.join(temp,'dist/fusions/test-fusion/index.html'),'utf8');assert.ok(detail.includes('Test &amp; New Fusion')&&detail.includes('New full description')&&detail.includes('Coming soon'));passed++;
+ const home=await fs.readFile(path.join(temp,'dist/index.html'),'utf8');assert.ok(!home.includes('fusions/test-fusion/'));passed++;
+ const cat=await fs.readFile(path.join(temp,'dist/fusions/index.html'),'utf8');assert.ok(cat.includes('6 Fusions shown')&&cat.includes('data-filter="Puzzle"'));passed++;
+ const dl=await fs.readFile(path.join(temp,'dist/download/index.html'),'utf8');assert.ok(dl.includes('Five bundled fusions.')&&!dl.includes('Test Nickname'));passed++;
+ await save(original);build();await assert.rejects(fs.access(path.join(temp,'dist/fusions/test-fusion/index.html')));passed++;
+ console.log(`PASS: ${passed} regression checks, including adding one Fusion with one image, generated SEO, release membership, and stale-page removal.`);
+} finally {
+ if(path.dirname(temp)!==os.tmpdir()||!path.basename(temp).startsWith('fuserift-test-'))throw Error('Unsafe test cleanup');
+ await fs.rm(temp,{recursive:true,force:true});
+}

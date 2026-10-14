@@ -1,0 +1,19 @@
+FuseRift by ZYNORIC STUDIOS
+Website updated and custom domain configured 14 October 2026.
+
+Main configured address: https://fuserift.co.uk/
+Live and verified: https://www.fuserift.co.uk/
+Working Cloudflare address: https://fuserift.pages.dev/
+Cloudflare Pages project: fuserift
+
+The complete website was updated in the existing free Cloudflare Pages project. Cloudflare confirmed deployment success. The published homepage at fuserift.pages.dev was checked in the browser, including canonical and sharing URLs pointing to fuserift.co.uk.
+
+Deployment contains 49 files and 14 pages. All 331 local link/asset references passed validation. Canonical URLs, social metadata and sitemap use https://fuserift.co.uk/.
+
+The user purchased fuserift.co.uk themselves before this connection task. The domain is active at Cloudflare Registrar, expiring 14 October 2027. Both proxied CNAME records, apex and www, point to fuserift.pages.dev with automatic TTL. Cloudflare Pages now reports BOTH hostnames Active with SSL enabled. Google Public DNS resolves the apex to Cloudflare addresses. The www homepage and Fusion catalogue were successfully opened over HTTPS in the browser. The browser still reports a DNS lookup failure for the apex on this connection, possibly due to a cached earlier failure; successful public loading without www has not yet been confirmed.
+
+Latest content deployment: five matching supplied illustrations, complete landscape artwork on phones and tablets, and “More Fusions are coming” notices on the homepage and catalogue. Cloudflare confirmed deployment success. Live mobile verification at www.fuserift.co.uk confirmed the new stylesheet version, all four complete hero images loaded using contain, source aspect ratio preserved, and no horizontal overflow. Artwork on cards and detail pages preserves the same source ratio. Desktop hero strips retain proportional cover crops.
+
+No additional purchase or paid hosting plan was selected. No old project, domain or content was deleted. The previous websites remain preserved. This task did not cancel or change renewal of the old fuseworlds.co.uk domain.
+
+Original source backups remain in sibling folders fuseworlds-website and fusion-engine-pro-website. The Windows application source was not changed. No installer download has been supplied; the website's release availability remains unchanged.

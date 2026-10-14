@@ -1,0 +1,9 @@
+Artwork and coming-soon update — 14 October 2026
+
+Five supplied artworks matched to Halo, Left 4 Dead, Portal, Five Nights at Balatro’s and ULTRAKILL. Cards, detail pages, galleries and the featured crossover preserve the source 1672 × 941 ratio. Existing hero strips use proportional cover crops.
+
+The homepage and catalogue include “More Fusions are coming” with a new-crossovers-in-development message. No release dates or unsupported new game combinations were invented.
+
+Validated: 14 static pages and 329 local links/assets. Desktop catalogue: all five images loaded, matching ratios, no horizontal overflow. Mobile catalogue and ULTRAKILL detail: matching ratios, no horizontal overflow.
+
+Publication verification is recorded in the task response.

@@ -1,0 +1,282 @@
+[
+  {
+    "id": "halo3-minecraft",
+    "slug": "halo3-minecraft",
+    "title": "Halo 3 + Minecraft",
+    "nickname": "",
+    "featuredTitle": "",
+    "games": "Halo 3 × Minecraft",
+    "type": "Combat",
+    "tag": "Two worlds. One battlefield.",
+    "shortDescription": "Bring Halo weapons, Covenant, Marines and a Ghost into Minecraft, including a ready-to-play Battle Arena.",
+    "fullDescription": "A familiar block-built world becomes the setting for a Halo-inspired battle. Explore the crossover through its included Battle Arena, with Halo weapons, allies, enemies and a Ghost.",
+    "status": "Experimental",
+    "requirements": [
+      "Windows 10 or Windows 11",
+      "Your own compatible copies of Halo 3 and Minecraft",
+      "The exact editions and versions supported by this Fusion",
+      "Available storage for setup and any required backups"
+    ],
+    "compatibility": {
+      "summary": "Tested version list awaiting confirmation.",
+      "description": "Support is version-specific. Exact editions, stores, game versions and hardware requirements have not yet been supplied for this website. Use FuseRift’ compatibility check before setup; this page does not guarantee that your installation is supported.",
+      "notes": "Performance requirements have not yet been confirmed. Repair and Restore Original availability depends on the package."
+    },
+    "features": [
+      "Halo weapons in Minecraft",
+      "Covenant and Marines",
+      "A Ghost to bring into the fight",
+      "Ready-to-play Battle Arena"
+    ],
+    "steps": [
+      "Install the required compatible games and open FuseRift.",
+      "Choose Halo 3 + Minecraft and let FuseRift check the installed versions.",
+      "Follow the setup prompts, then launch the combined experience and try the Battle Arena."
+    ],
+    "order": 10,
+    "featured": true,
+    "artwork": {
+      "src": "assets/images/halo-minecraft.jpg",
+      "alt": "Concept artwork of Steve and Master Chief battling Covenant forces in a Minecraft landscape.",
+      "width": 1672,
+      "height": 941,
+      "theme": "halo",
+      "webp": [
+        {
+          "src": "assets/images/halo-minecraft-768.webp",
+          "width": 768
+        },
+        {
+          "src": "assets/images/halo-minecraft-1672.webp",
+          "width": 1672
+        }
+      ]
+    }
+  },
+  {
+    "id": "left4dead-minecraft",
+    "slug": "left4dead-minecraft",
+    "title": "Left 4 Dead + Minecraft",
+    "nickname": "",
+    "featuredTitle": "",
+    "games": "Left 4 Dead × Minecraft",
+    "type": "Survival",
+    "tag": "Survive the unexpected.",
+    "shortDescription": "Survive Left 4 Dead’s infected and Tank inside Minecraft, including the Infected Outskirts showcase world.",
+    "fullDescription": "Left 4 Dead’s infected arrive in Minecraft. The included Infected Outskirts showcase world gives you a place to discover the crossover and face its Tank.",
+    "status": "Experimental",
+    "requirements": [
+      "Windows 10 or Windows 11",
+      "Your own compatible copies of Left 4 Dead and Minecraft",
+      "The exact editions and versions supported by this Fusion",
+      "Available storage for setup and any required backups"
+    ],
+    "compatibility": {
+      "summary": "Tested version list awaiting confirmation.",
+      "description": "Support is version-specific. Exact editions, stores, game versions and hardware requirements have not yet been supplied for this website. Use FuseRift’ compatibility check before setup; this page does not guarantee that your installation is supported.",
+      "notes": "Performance requirements have not yet been confirmed. Repair and Restore Original availability depends on the package."
+    },
+    "features": [
+      "Left 4 Dead’s infected inside Minecraft",
+      "The Tank joins the encounter",
+      "Infected Outskirts showcase world",
+      "A new setting for survival"
+    ],
+    "steps": [
+      "Have the required compatible games installed on your PC.",
+      "Select Left 4 Dead + Minecraft and review FuseRift’ compatibility check.",
+      "Complete the guided setup, launch the Fusion and explore Infected Outskirts."
+    ],
+    "order": 20,
+    "featured": true,
+    "artwork": {
+      "src": "assets/images/left4dead-minecraft.jpg",
+      "alt": "Concept artwork of Steve defending a Minecraft village against infected and a towering Tank.",
+      "width": 1672,
+      "height": 941,
+      "theme": "infected",
+      "webp": [
+        {
+          "src": "assets/images/left4dead-minecraft-768.webp",
+          "width": 768
+        },
+        {
+          "src": "assets/images/left4dead-minecraft-1672.webp",
+          "width": 1672
+        }
+      ]
+    }
+  },
+  {
+    "id": "portal-minecraft",
+    "slug": "portal-minecraft",
+    "title": "Portal + Minecraft",
+    "nickname": "PortalCraft",
+    "featuredTitle": "",
+    "games": "Portal × Minecraft",
+    "type": "Building",
+    "tag": "Think outside the chamber.",
+    "shortDescription": "Build, survive and use Minecraft systems inside Portal’s test chambers.",
+    "fullDescription": "Bring Minecraft building and survival systems into Portal’s test chambers. Familiar spaces become a different kind of playground as you explore this experimental combination.",
+    "status": "Experimental",
+    "requirements": [
+      "Windows 10 or Windows 11",
+      "Your own compatible copies of Portal and Minecraft",
+      "The exact editions and versions supported by this Fusion",
+      "Available storage for setup and any required backups"
+    ],
+    "compatibility": {
+      "summary": "Tested version list awaiting confirmation.",
+      "description": "Support is version-specific. Exact editions, stores, game versions and hardware requirements have not yet been supplied for this website. Use FuseRift’ compatibility check before setup; this page does not guarantee that your installation is supported.",
+      "notes": "Performance requirements have not yet been confirmed. Repair and Restore Original availability depends on the package."
+    },
+    "features": [
+      "Minecraft building inside Portal",
+      "Minecraft survival systems",
+      "A new take on test-chamber spaces",
+      "A crossover to explore at your own pace"
+    ],
+    "steps": [
+      "Install your compatible games and start FuseRift.",
+      "Choose Portal + Minecraft and check that your versions are supported.",
+      "Follow the guided setup and launch the combined experience."
+    ],
+    "order": 30,
+    "featured": true,
+    "artwork": {
+      "src": "assets/images/portal-minecraft.jpg",
+      "alt": "Concept artwork of Steve building between blue and orange portals in a Portal test chamber.",
+      "width": 1672,
+      "height": 941,
+      "theme": "portal",
+      "webp": [
+        {
+          "src": "assets/images/portal-minecraft-768.webp",
+          "width": 768
+        },
+        {
+          "src": "assets/images/portal-minecraft-1672.webp",
+          "width": 1672
+        }
+      ]
+    }
+  },
+  {
+    "id": "five-nights-at-balatros",
+    "slug": "five-nights-at-balatros",
+    "title": "Five Nights at Balatro’s",
+    "nickname": "",
+    "featuredTitle": "",
+    "games": "Five Nights at Freddy’s × Balatro",
+    "type": "Strategy",
+    "tag": "Cards. Cameras. Doors. Power.",
+    "shortDescription": "Turn a Balatro run into a Five Nights at Freddy’s night shift where cards control cameras, doors, lights and power.",
+    "fullDescription": "A Balatro run becomes a night shift. Cards control the cameras, doors, lights and power as you try to survive until 6 AM. Familiar decisions take on a very different kind of tension.",
+    "status": "Experimental",
+    "requirements": [
+      "Windows 10 or Windows 11",
+      "Your own compatible games required by this Fusion",
+      "Confirm the required Five Nights at Freddy’s title and Balatro version in the launcher",
+      "Available storage for setup and any required backups"
+    ],
+    "compatibility": {
+      "summary": "Tested version list awaiting confirmation.",
+      "description": "Support is version-specific. Exact editions, stores, game versions and hardware requirements have not yet been supplied for this website. Use FuseRift’ compatibility check before setup; this page does not guarantee that your installation is supported.",
+      "notes": "Performance requirements have not yet been confirmed. Repair and Restore Original availability depends on the package."
+    },
+    "features": [
+      "A night-shift twist on a Balatro run",
+      "Cards control cameras, doors and lights",
+      "Power becomes part of your decisions",
+      "Survive until 6 AM"
+    ],
+    "steps": [
+      "Open FuseRift and select Five Nights at Balatro’s.",
+      "Review the required games and supported versions in the compatibility check.",
+      "Follow the setup prompts and start a run. Use your cards to manage the night shift."
+    ],
+    "order": 40,
+    "featured": true,
+    "artwork": {
+      "src": "assets/images/five-nights-at-balatros.jpg",
+      "alt": "Concept artwork of Freddy holding a joker card at a table surrounded by playing cards.",
+      "width": 1672,
+      "height": 941,
+      "theme": "balatro",
+      "webp": [
+        {
+          "src": "assets/images/five-nights-at-balatros-768.webp",
+          "width": 768
+        },
+        {
+          "src": "assets/images/five-nights-at-balatros-1672.webp",
+          "width": 1672
+        }
+      ]
+    },
+    "showcase": {
+      "titleLines": [
+        "Five Nights",
+        "at Balatro’s"
+      ],
+      "descriptionLines": [
+        "Cards. Cameras. Doors. Power.",
+        "Survive until 6 AM."
+      ]
+    }
+  },
+  {
+    "id": "ultrakill-minecraft",
+    "slug": "ultrakill-minecraft",
+    "title": "ULTRAKILL + Minecraft",
+    "nickname": "Killcraft",
+    "featuredTitle": "Killcraft",
+    "games": "ULTRAKILL × Minecraft",
+    "type": "Combat",
+    "tag": "Build. Survive. Keep moving.",
+    "shortDescription": "Combine Minecraft building and survival systems with ULTRAKILL’s fast, brutal combat.",
+    "fullDescription": "Minecraft building and survival systems meet ULTRAKILL’s fast combat in an experimental crossover. Supported versions and setup requirements are specific to this Fusion.",
+    "status": "Experimental",
+    "requirements": [
+      "Windows 10 or Windows 11",
+      "Your own compatible copies of ULTRAKILL and Minecraft",
+      "The exact editions and versions supported by this Fusion",
+      "Available storage for setup and any required backups"
+    ],
+    "compatibility": {
+      "summary": "Tested version list awaiting confirmation.",
+      "description": "Support is version-specific. Exact editions, stores, game versions and hardware requirements have not yet been supplied for this website. Use FuseRift’ compatibility check before setup; this page does not guarantee that your installation is supported.",
+      "notes": "Performance requirements have not yet been confirmed. Repair and Restore Original availability depends on the package."
+    },
+    "features": [
+      "Minecraft building systems",
+      "Minecraft survival systems",
+      "ULTRAKILL’s fast combat",
+      "Guided setup through FuseRift"
+    ],
+    "steps": [
+      "Install the required compatible games and start FuseRift.",
+      "Select ULTRAKILL + Minecraft and review the compatibility result.",
+      "Complete the guided setup and launch the combined experience."
+    ],
+    "order": 50,
+    "featured": true,
+    "artwork": {
+      "src": "assets/images/ultrakill-minecraft.jpg",
+      "alt": "Concept artwork of an airborne Minecraft player firing at machines in a fiery ULTRAKILL-inspired arena.",
+      "width": 1672,
+      "height": 941,
+      "theme": "ultrakill",
+      "webp": [
+        {
+          "src": "assets/images/ultrakill-minecraft-768.webp",
+          "width": 768
+        },
+        {
+          "src": "assets/images/ultrakill-minecraft-1672.webp",
+          "width": 1672
+        }
+      ]
+    }
+  }
+]

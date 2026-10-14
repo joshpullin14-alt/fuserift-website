@@ -1,0 +1,13 @@
+{
+  "status": "READY_FOR_REVIEW_NOT_PUBLISHED",
+  "date": "2026-10-14",
+  "pagesPreserved": 14,
+  "appearanceCheck": "All existing HTML identical after normalizing cache keys, search-only nickname data and equivalent audit href; CSS and artwork byte-identical.",
+  "regressionChecks": 13,
+  "canonicalCatalogue": "data/fusions.json",
+  "canonicalConfig": "data/site-config.json",
+  "buildCommand": "node tools/build-check.mjs",
+  "hostingChanged": false,
+  "gitPushed": false,
+  "notes": "Existing direct-upload Cloudflare project needs a reviewed migration to a new Git-connected Pages project. No live changes made."
+}

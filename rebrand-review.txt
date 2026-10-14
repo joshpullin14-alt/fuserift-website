@@ -1,0 +1,14 @@
+FuseRift custom domain checks - 14 October 2026
+
+Passed: 14 generated pages and 326 local link/asset references.
+Passed: FuseRift and ZYNORIC STUDIOS appear on every page, with old brand names and URLs absent from deployable text content.
+Passed: canonical URLs and sitemap use https://fuserift.co.uk/.
+Passed: original artwork, layout and page content preserved.
+Passed: 34/34 files uploaded and Cloudflare confirmed deployment success for fuserift.
+Passed: public https://fuserift.pages.dev/ loads with FuseRift branding and the new fuserift.co.uk canonical and sharing URLs.
+Passed: fuserift.co.uk registrar and zone are active.
+Passed: root and www proxied CNAME records point to fuserift.pages.dev with automatic TTL.
+Passed: Cloudflare Pages reports www.fuserift.co.uk Active with SSL enabled. The homepage and Fusion catalogue load successfully at https://www.fuserift.co.uk/ in the browser.
+Pending: Cloudflare Pages activation of the apex fuserift.co.uk hostname. Dashboard currently reports Verifying; loading without www is not yet confirmed.
+
+The user purchased the domain before this task. No further purchase, paid hosting, project deletion or installer release was added.
