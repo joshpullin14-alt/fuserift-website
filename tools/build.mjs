@@ -4,6 +4,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { loadData } from './data.mjs';
 import { createHash } from 'node:crypto';
+import { stageUpdateFeed } from './update-feed.mjs';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const { fusions: data, config } = await loadData(root);
 const output = path.join(root,'dist');
@@ -148,4 +149,5 @@ if (config.RELEASE_AUDIT) {
   await fs.mkdir(path.dirname(path.join(output,config.RELEASE_AUDIT)),{recursive:true});
   await fs.copyFile(path.join(root,config.RELEASE_AUDIT),path.join(output,config.RELEASE_AUDIT));
 }
+await stageUpdateFeed(root,output,config);
 console.log(`Built ${pages.length} static pages in dist/. SEO uses ${siteURL}`);

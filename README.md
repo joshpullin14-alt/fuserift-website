@@ -128,6 +128,22 @@ After approval, save current domain/DNS settings, move both custom domains throu
 
 Hosting remains static on Cloudflare Pages Free, with no paid runtime service. Hosting is £0/month within free limits; the existing domain has its separate annual renewal cost. Installer binaries stay on the existing GitHub Releases host. Do not enable paid add-ons.
 
+## Import a future approved launcher release
+
+The launcher repository's `release/application.json` is the source for future release metadata. Its local exporter produces `website-release-fields.json` and a signed `update/` folder. Do not retype versions or hashes into HTML.
+
+After reviewing the release and copying its matching audit into `download/`, run:
+
+```text
+node tools/import-release.mjs <export/website-release-fields.json> download/<matching-audit>.json <export/update>
+node tools/build-check.mjs
+node tools/test-update-feed.mjs
+```
+
+The import checks the manifest signature and matching installer metadata. A configured `release-feed/` is verified again during the build and emitted as `/update/latest.json` and `/update/latest.json.sig`. No feed exists in this revision: the production key and endpoint remain unconfigured. No updater release has been imported or published. Keep the current 0.1.8.9 download unchanged until a new installer is approved and verified.
+
+The updater milestone is on a publication hold. The setup pull request remains open; do not merge or switch custom domains until Josh approves.
+
 ## Source map
 
 - `data/fusions.json`: canonical catalogue facts.
