@@ -20,6 +20,9 @@ try {
  await bad(d=>d[0].artwork.src='assets/images/missing.png',/ENOENT/);
  await bad(d=>d[0].order=d[1].order,/unique integer/);
  await bad(d=>d[0].compatibility=null,/compatibility/);
+ await bad(d=>d[0].requiredGames=['unknown'],/Unknown required game/);
+ await saveConfig({...originalConfig,DONATION_URL:'javascript:alert(1)'});await assert.rejects(loadData(temp),/HTTPS/);passed++;await saveConfig(originalConfig);
+ await saveConfig({...originalConfig,MICROSOFT_STORE_ENABLED:true,MICROSOFT_STORE_URL:''});await assert.rejects(loadData(temp),/Approved Store URL required/);passed++;await saveConfig(originalConfig);
  await saveConfig({...originalConfig,DOWNLOAD_URL:'javascript:alert(1)'});await assert.rejects(loadData(temp),/HTTPS/);passed++;
  await saveConfig({...originalConfig,LATEST_VERSION:'9.9.9'});await assert.rejects(loadData(temp),/audit does not match/);passed++;
  await saveConfig({...originalConfig,BUNDLED_FUSION_IDS:['not-a-fusion']});await assert.rejects(loadData(temp),/BUNDLED_FUSION_IDS/);passed++;await saveConfig(originalConfig);

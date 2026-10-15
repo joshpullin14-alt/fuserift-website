@@ -6,7 +6,7 @@
   "DOWNLOAD_SHA256": "dcdd2b04831226661a8c9ff616d6d5a1386d8a890e0445fff1425c0f0caa23a7",
   "DOWNLOAD_PRODUCT": "Fusion Engine Pro — Experimental Customer Alpha",
   "RELEASE_NOTES_URL": "https://github.com/joshpullin14-alt/fuserift-downloads/releases/tag/v0.1.9.0-alpha",
-  "DISCORD_URL": "",
+  "DISCORD_URL": "https://discord.gg/zRZH4dEVkG",
   "BUG_REPORT_URL": "",
   "SITE_URL": "https://fuserift.co.uk/",
   "SOCIAL_IMAGE": "assets/images/social-preview.jpg",
@@ -17,6 +17,24 @@
     "halo3-minecraft",
     "left4dead-minecraft",
     "portal-minecraft",
+    "ultrakill-minecraft",
+    "five-nights-at-balatros"
+  ],
+  "DONATION_URL": "",
+  "MICROSOFT_STORE_URL": "",
+  "MICROSOFT_STORE_ENABLED": false,
+  "SUPPORT_EMAIL": "support@fuserift.co.uk",
+  "SUPPORT_ADDRESS": [
+    "Unit 174590",
+    "PO Box 7169",
+    "Poole",
+    "Dorset",
+    "BH15 9EL",
+    "United Kingdom"
+  ],
+  "HERO_FUSION_IDS": [
+    "halo3-minecraft",
+    "left4dead-minecraft",
     "ultrakill-minecraft",
     "five-nights-at-balatros"
   ]

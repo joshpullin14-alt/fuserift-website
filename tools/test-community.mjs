@@ -1,0 +1,50 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs/promises';
+import os from 'node:os';
+import path from 'node:path';
+import {runtime} from './community-runtime.mjs';
+const dir=await fs.mkdtemp(path.join(os.tmpdir(),'fuserift-community-test-'));
+let instance,passed=0;const check=(value,label)=>{assert.ok(value,label);passed++;};
+try{
+ instance=await runtime({directory:dir});
+ let {mf,db}=instance;let serial=0;
+ const request=async(kind,body,options={})=>{const r=await mf.dispatchFetch('https://fuserift.co.uk/api/'+kind,{method:options.method||(body?'POST':'GET'),headers:{Origin:options.origin??'https://fuserift.co.uk','Content-Type':options.type||'application/json','CF-Connecting-IP':options.ip||'198.51.100.'+(++serial),...(options.cookie?{Cookie:options.cookie}:{})},body:body===undefined?undefined:typeof body==='string'?body:JSON.stringify(body)});return {status:r.status,data:await r.json(),cookie:r.headers.get('Set-Cookie')?.split(';')[0]};};
+ let r=await request('ratings');check(r.status===200&&r.data.ratings.every(x=>x.count===0&&x.average===null),'No fake initial ratings');
+ const fusion=r.data.ratings[0].fusion;
+ r=await request('ratings',{fusion,stars:5});const cookie=r.cookie;check(r.status===200&&cookie&&r.data.ratings[0].count===1,'Save rating with signed cookie');
+ r=await request('ratings',{fusion,stars:3},{cookie});check(r.data.ratings[0].count===1&&r.data.ratings[0].average===3,'Changing vote does not inflate count');
+ r=await request('ratings',undefined,{cookie});check(r.data.ratings[0].mine===3,'Refresh retrieves own rating');
+ r=await request('ratings');check(r.data.ratings[0].average===3&&r.data.ratings[0].mine===null,'Different device sees shared average, no private vote');
+ await mf.dispose();instance=await runtime({directory:dir});mf=instance.mf;db=instance.db;
+ r=await request('ratings',undefined,{cookie});check(r.data.ratings[0].count===1&&r.data.ratings[0].mine===3,'Ratings and cookie survive runtime restart');
+ for(const stars of [0,6,1.5,'5',null]){r=await request('ratings',{fusion,stars});check(r.status===400,'Invalid stars rejected');}
+ r=await request('ratings',{fusion:'unknown',stars:5});check(r.status===400,'Unknown Fusion rejected');
+ r=await request('ratings',{fusion,stars:5},{origin:'https://evil.example'});check(r.status===403,'Cross-origin CSRF rejected');
+ r=await request('ratings','{bad');check(r.status===400,'Malformed JSON rejected');
+ r=await request('ratings',{fusion,stars:5},{type:'text/plain'});check(r.status===415,'Non-JSON rejected');
+ r=await request('ratings',{fusion,stars:5,website:'spam'});check(r.status===400,'Honeypot rejected');
+ r=await request('ratings',{fusion,stars:4},{cookie:cookie.replace(/.$/,'x')});check(r.data.ratings[0].count===2,'Forged cookie cannot overwrite previous vote');
+ const bug={fusion,version:'0.1.9.0',windows:'Windows 11',happened:'Preview test: setup stopped',expected:'Setup completes',steps:'1. Open setup',email:'test@example.invalid',log:'Test log: no personal data.'};
+ r=await request('bugs',bug);const report=r.data.id;check(r.status===201&&report,'Bug report saves');
+ const stored=await db.prepare('SELECT body FROM submissions WHERE id=?').bind(report).first();check(JSON.parse(stored.body).log===bug.log,'Optional log and report preserved privately');
+ r=await request('bugs');check(r.status===405&&!JSON.stringify(r.data).includes(bug.happened),'Reports not publicly readable');
+ r=await request('bugs',{...bug,email:'bad'});check(r.status===400,'Invalid follow-up email rejected');
+ r=await request('bugs',{...bug,log:'x'.repeat(65537)});check(r.status===400||r.status===413,'Oversized log rejected');
+ r=await request('bugs','x'.repeat(90001));check(r.status===413,'Oversized body rejected');
+ r=await request('suggestions',{gameA:'Bully',gameB:'Skate 3'});check(r.status===201,'Suggestion saved');
+ r=await request('suggestions');check(r.status===405,'Suggestions never published raw');
+ r=await request('suggestions',{gameA:'',gameB:'Skate 3'});check(r.status===400,'Empty suggestion rejected');
+ const attack=await Promise.all(Array.from({length:25},()=>request('ratings',{fusion,stars:4},{ip:'203.0.113.90'})));
+ check(attack.filter(r=>r.status===200).length===20&&attack.filter(r=>r.status===429).length===5,'Atomic rate limit rejects concurrent hammering');
+ const bugSpam=await Promise.all(Array.from({length:7},()=>request('bugs',bug,{ip:'203.0.113.91'})));check(bugSpam.filter(r=>r.status===201).length===5&&bugSpam.filter(r=>r.status===429).length===2,'Bug rate limit');
+ const ideas=await Promise.all(Array.from({length:12},()=>request('suggestions',{gameA:'A',gameB:'B'},{ip:'203.0.113.92'})));check(ideas.filter(r=>r.status===201).length===10&&ideas.filter(r=>r.status===429).length===2,'Suggestion rate limit');
+ const keys=await db.prepare('SELECT key FROM limits').all();check(!JSON.stringify(keys).includes('203.0.113'),'Raw IP never stored');
+ const old=Math.floor(Date.now()/1000)-400*86400;
+ await db.prepare("INSERT INTO submissions VALUES('expired','bugs','{}',?)").bind(old).run();
+ await db.prepare("INSERT INTO limits VALUES('expired',1,?)").bind(old).run();
+ const worker=await mf.getWorker();await worker.scheduled({scheduledTime:Date.now(),cron:'17 * * * *'});
+ check(!(await db.prepare("SELECT id FROM submissions WHERE id='expired'").first())&&!(await db.prepare("SELECT key FROM limits WHERE key='expired'").first()),'Scheduled retention removes expired private records');
+ await db.prepare('DROP TABLE ratings').run();r=await request('ratings');check(r.status===503&&!JSON.stringify(r.data).includes('SQL'),'Storage failure is graceful and does not leak internals');
+ console.log(`PASS: ${passed} community API checks using Cloudflare workerd and persistent local D1. No remote data written.`);
+}finally{if(instance)await instance.mf.dispose();if(path.dirname(dir)===os.tmpdir()&&path.basename(dir).startsWith('fuserift-community-test-'))await fs.rm(dir,{recursive:true,force:true});}
+

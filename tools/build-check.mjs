@@ -18,7 +18,7 @@ for(const file of files){
  }
  for(const [,url] of html.matchAll(/<a[^>]*href="([^"]*)"[^>]*data-config-link="DOWNLOAD_URL"/g)){buttons++;if(config.DOWNLOAD_URL)assert.equal(url,config.DOWNLOAD_URL);}
 }
-assert.equal(pages,fusions.length+9);
+assert.equal(pages,fusions.length+11);
 const home=await fs.readFile(path.join(dist,'index.html'),'utf8');
 assert.equal((home.match(/class="fusion-card"/g)||[]).length,fusions.filter(f=>f.featured).length);
 const catalogue=await fs.readFile(path.join(dist,'fusions/index.html'),'utf8');

@@ -6,3 +6,8 @@ Thumbs.db
 .env.*
 
 dist/
+
+.wrangler/
+.dev.vars*
+.local-community/
+qa-results/
