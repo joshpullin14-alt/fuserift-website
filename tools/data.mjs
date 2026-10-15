@@ -41,6 +41,7 @@ export async function loadData(root) {
  if(!/^[A-Za-z0-9._-]+\.exe$/.test(config.DOWNLOAD_FILENAME))fail('DOWNLOAD_FILENAME must be a Windows installer filename');
  if(config.DOWNLOAD_URL&&(!Number.isSafeInteger(config.DOWNLOAD_BYTES)||config.DOWNLOAD_BYTES<1||!/^[a-f0-9]{64}$/.test(config.DOWNLOAD_SHA256)))fail('Provide the actual installer byte size and SHA-256');
  if(!Array.isArray(config.BUNDLED_FUSION_IDS)||!config.BUNDLED_FUSION_IDS.length||new Set(config.BUNDLED_FUSION_IDS).size!==config.BUNDLED_FUSION_IDS.length||config.BUNDLED_FUSION_IDS.some(id=>!ids.has(id)))fail('BUNDLED_FUSION_IDS must reference unique existing Fusion IDs');
+ if(!Array.isArray(config.HERO_FUSION_IDS)||config.HERO_FUSION_IDS.length!==4||new Set(config.HERO_FUSION_IDS).size!==4||config.HERO_FUSION_IDS.some(id=>!ids.has(id)))fail('HERO_FUSION_IDS must select four distinct catalogue entries');
  await asset(config.SOCIAL_IMAGE);
  if(config.RELEASE_AUDIT){await asset(config.RELEASE_AUDIT);const audit=await read(config.RELEASE_AUDIT);for(const [a,b] of [['version','LATEST_VERSION'],['filename','DOWNLOAD_FILENAME'],['bytes','DOWNLOAD_BYTES'],['sha256','DOWNLOAD_SHA256']])if(audit.release?.[a]!==config[b])fail(`Release audit does not match ${b}; provide the matching audit or set RELEASE_AUDIT to an empty string`);}
  return {fusions:fusions.sort((a,b)=>a.order-b.order),config,games};

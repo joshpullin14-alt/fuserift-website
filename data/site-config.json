@@ -31,5 +31,11 @@
     "Dorset",
     "BH15 9EL",
     "United Kingdom"
+  ],
+  "HERO_FUSION_IDS": [
+    "halo3-minecraft",
+    "left4dead-minecraft",
+    "ultrakill-minecraft",
+    "five-nights-at-balatros"
   ]
 }
