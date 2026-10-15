@@ -51,7 +51,11 @@
           "width": 1672
         }
       ]
-    }
+    },
+    "requiredGames": [
+      "minecraft",
+      "halo3"
+    ]
   },
   {
     "id": "left4dead-minecraft",
@@ -105,7 +109,11 @@
           "width": 1672
         }
       ]
-    }
+    },
+    "requiredGames": [
+      "minecraft",
+      "left4dead"
+    ]
   },
   {
     "id": "portal-minecraft",
@@ -159,7 +167,11 @@
           "width": 1672
         }
       ]
-    }
+    },
+    "requiredGames": [
+      "minecraft",
+      "portal"
+    ]
   },
   {
     "id": "five-nights-at-balatros",
@@ -176,7 +188,7 @@
     "requirements": [
       "Windows 10 or Windows 11",
       "Your own compatible games required by this Fusion",
-      "Confirm the required Five Nights at Freddy’s title and Balatro version in the launcher",
+      "Compatible installations of Five Nights at Freddy’s and Balatro; check versions in the launcher.",
       "Available storage for setup and any required backups"
     ],
     "compatibility": {
@@ -223,7 +235,11 @@
         "Cards. Cameras. Doors. Power.",
         "Survive until 6 AM."
       ]
-    }
+    },
+    "requiredGames": [
+      "fnaf",
+      "balatro"
+    ]
   },
   {
     "id": "ultrakill-minecraft",
@@ -277,6 +293,10 @@
           "width": 1672
         }
       ]
-    }
+    },
+    "requiredGames": [
+      "minecraft",
+      "ultrakill"
+    ]
   }
 ]

@@ -2,7 +2,7 @@
 
 This is the existing FuseRift website, refactored without a visual redesign. The automatic version is connected at https://fuserift-website.pages.dev/ using https://github.com/joshpullin14-alt/fuserift-website. Josh authorized setup and testing on this separate address. The original website and custom domains remain unchanged; domain switching requires separate approval.
 
-The website is plain HTML, CSS and browser JavaScript. Node.js is used only to generate the files before hosting. There is no database, server, paid CMS or runtime service. All 14 existing page URLs, artwork, mobile styles and working installer links are preserved.
+The website is plain HTML, CSS and browser JavaScript. Node.js is used only to generate the files before hosting. The new community upgrade adds a small Cloudflare Worker and D1 database for ratings and private submissions, using the free plan. All 14 existing page URLs, artwork and installer links remain; Contact and Report a Bug bring the total to 16 pages. This update is local and awaiting approval, not live.
 
 ## The three-step way to add a Fusion
 
@@ -10,7 +10,7 @@ The website is plain HTML, CSS and browser JavaScript. Node.js is used only to g
 2. Open `data/fusions.json`. Copy one existing entry, paste it after the last entry (with a comma between entries), and edit it using the guide below. Give it a unique `id`, `slug` and `order`.
 3. From this project folder run **`node tools/build-check.mjs`**. A successful run ends with `CHECK PASS`. It builds the Home cards, catalogue, detail pages, search filters, metadata and sitemap together. It does not publish anything.
 
-Then double-click **Preview Website.cmd** to review at http://127.0.0.1:4173/. Keep its window open; Ctrl+C stops it. Node.js 22 or newer is required. No packages need installing. Do not open the old root HTML files: the complete generated website is in `dist/`.
+For the full interactive preview, run `npm ci` once, then `npm run preview` and open http://127.0.0.1:4174/. Keep its window open; Ctrl+C stops it. Node.js 22 or newer is required. Preview Website.cmd also starts this preview. Do not open the old root HTML files: the complete generated website is in `dist/`.
 
 ### What each Fusion field means
 
@@ -27,6 +27,7 @@ Then double-click **Preview Website.cmd** to review at http://127.0.0.1:4173/. K
 | `shortDescription` | Card and introductory description; also used for search and SEO. Plain text. |
 | `fullDescription` | The detail page's “What it does” paragraph. Plain text. |
 | `status` | Honest status, such as `Experimental` or `Coming soon`. |
+| `requiredGames` | IDs from `data/games.json`, which holds official game titles and purchase links. Reuse existing IDs; add a verified official store entry there only for a new game. |
 | `requirements` | List of required games, Windows version, storage and other requirements. |
 | `compatibility` | `summary`, `description` and `notes`, all plain text. Do not invent tested versions. |
 | `features` | List of features. |
@@ -58,7 +59,7 @@ Edit **`data/site-config.json`**, then run the same `node tools/build-check.mjs`
 
 | Setting | What to enter |
 | --- | --- |
-| `LATEST_VERSION` | Exact public Fusion/FuseRift launcher version. Currently `0.1.8.9`. |
+| `LATEST_VERSION` | Exact public Fusion/FuseRift launcher version. Currently `0.1.9.0`. |
 | `DOWNLOAD_URL` | Real HTTPS URL to the complete Windows installer. Keep large installers on GitHub Releases, outside this website. |
 | `DOWNLOAD_FILENAME` | Exact installer filename ending in `.exe`. |
 | `DOWNLOAD_BYTES` | Actual whole-number size in bytes, not a rounded MB value. |
@@ -95,7 +96,7 @@ The first command is the normal one-command update: validates JSON, unique IDs/s
 
 The second command is the regression suite. It uses a temporary copy to test adding a sixth Fusion using one image, auto-generated detail/SEO/filter entries, featured selection, unchanged installer contents, stale-page removal, missing artwork, duplicate IDs, unsafe paths/URLs and mismatched release audits. It does not change the live data or publish.
 
-`npm run build` and `npm test` are equivalent convenience commands; no dependencies are required. CSS and artwork are unchanged. Build-derived cache versions prevent stale browser config after future releases.
+`npm run build` and `npm test` remain convenience commands for the static checks. Run `npm ci` and `npm run check` for all content, signed-feed and community API checks. Browser tests use `npx playwright install chromium`, then `npm run test:browser` with the preview running. Artwork is unchanged; CSS has targeted mobile and community additions. Build-derived cache versions prevent stale browser config after future releases.
 
 ## Automatic publishing and approval
 
@@ -158,3 +159,9 @@ The updater milestone is on a publication hold. The setup pull request remains o
 - `.github/workflows/check.yml`: checks only, no publishing.
 
 Do not edit generated HTML. Keep artwork provenance in ARTWORK.md/content/ARTWORK.md. Historical PUBLISHED.txt describes the previous live release, not approval or publication of this refactor.
+
+## Community, support and purchase settings
+
+See **COMMUNITY-OPERATIONS.md** for the plain-English settings guide, testing and approval-gated setup. `DONATION_URL` stays empty until Josh supplies a donation page. `MICROSOFT_STORE_URL` stays empty and `MICROSOFT_STORE_ENABLED` false until an approved listing exists. `SUPPORT_EMAIL` and `SUPPORT_ADDRESS` contain only the public support/correspondence details. Official purchase links are stored once in `data/games.json`.
+
+The new local preview is http://127.0.0.1:4174/. It includes persistent test ratings and private forms. Publishing the backend requires a free Cloudflare D1 binding and encrypted abuse-prevention secret, handled by Codex after Josh approves. No domain switch is necessary for this upgrade.

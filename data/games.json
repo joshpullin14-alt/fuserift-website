@@ -1,0 +1,37 @@
+{
+  "minecraft": {
+    "title": "Minecraft: Java Edition",
+    "url": "https://www.minecraft.net/en-us/store/minecraft-java-bedrock-edition-pc",
+    "label": "Buy official copy"
+  },
+  "halo3": {
+    "title": "Halo 3 (The Master Chief Collection)",
+    "url": "https://store.steampowered.com/app/1064271/Halo_3/",
+    "label": "Buy on Steam"
+  },
+  "left4dead": {
+    "title": "Left 4 Dead",
+    "url": "https://store.steampowered.com/app/500/Left_4_Dead/",
+    "label": "Buy on Steam"
+  },
+  "portal": {
+    "title": "Portal",
+    "url": "https://store.steampowered.com/app/400/Portal/",
+    "label": "Buy on Steam"
+  },
+  "ultrakill": {
+    "title": "ULTRAKILL",
+    "url": "https://store.steampowered.com/app/1229490/ULTRAKILL/",
+    "label": "Buy on Steam"
+  },
+  "fnaf": {
+    "title": "Five Nights at Freddy’s",
+    "url": "https://store.steampowered.com/app/319510/Five_Nights_at_Freddys/",
+    "label": "Buy on Steam"
+  },
+  "balatro": {
+    "title": "Balatro",
+    "url": "https://store.steampowered.com/app/2379780/Balatro/",
+    "label": "Buy on Steam"
+  }
+}

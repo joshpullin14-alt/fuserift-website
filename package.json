@@ -1,1 +1,27 @@
-{"name":"fuserift-website","private":true,"version":"1.0.0","type":"module","engines":{"node":">=22"},"scripts":{"build":"node tools/build-check.mjs","test":"node tools/test-data.mjs","preview":"node tools/serve.mjs"}}
+{
+  "name": "fuserift-website",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "node tools/build-check.mjs",
+    "test": "node tools/test-data.mjs",
+    "preview": "node tools/preview-community.mjs",
+    "test:community": "node tools/test-community.mjs",
+    "test:browser": "node tools/test-browser.cjs",
+    "check": "node tools/build-check.mjs && node tools/test-data.mjs && node tools/test-update-feed.mjs && node tools/test-community.mjs && node tools/test-community-content.mjs"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2",
+    "miniflare": "4.20260730.0",
+    "playwright": "1.64.1",
+    "wrangler": "4.151.0"
+  },
+  "overrides": {
+    "undici": "^7.29.1",
+    "sharp": "^0.35.5"
+  }
+}
